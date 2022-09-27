@@ -1,0 +1,9 @@
+{
+	"id": "sa_stone_arch",
+	"nameOverride": "Stone Arch",
+	"descriptionOverride": "An arch made of stone",
+	"value": 5,
+	"type": "Structures",
+	"icon": "arch.png",
+	"script": "StoneArchNS.StoneArch",
+}

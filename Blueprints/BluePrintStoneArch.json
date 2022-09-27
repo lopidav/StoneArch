@@ -1,0 +1,19 @@
+
+{
+	"id": "blueprint_stone_arch",
+	"nameOverride": "Idea: Stone Arch",
+	"nameTerm": "blueprint_sa_stone_arch",
+	"group": "Important",
+	"icon": "arch.png",
+	"stackText": "Doin",
+	"subprints": [
+		{
+			"requiredCards": "stone,stone,stone,stone,any_villager",
+			"cardsToRemove": "stone,stone,stone,stone",
+			"resultCard": "sa_stone_arch",
+			"extraResultCards": "",
+			"time": 30,
+			"statusOverride": "Building a stone arch"
+		}
+	]
+}

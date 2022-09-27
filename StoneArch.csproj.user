@@ -1,0 +1,8 @@
+<Project>
+
+  <PropertyGroup>
+    
+    <stacklandsDir>/media/SteamGames/SteamLibrary/steamapps/common/Stacklands</stacklandsDir>
+  </PropertyGroup>
+
+</Project>
