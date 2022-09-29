@@ -12,7 +12,7 @@ using HarmonyLib;
 namespace StoneArchNS
 {
 
-	[BepInPlugin("StoneArch", "StoneArch", "1.0.0")]
+	[BepInPlugin("StoneArch", "StoneArch", "1.2.0")]
 	[BepInDependency("BerryLoader")]
 	public class StoneArchPlugin : BaseUnityPlugin
 	{
@@ -24,7 +24,6 @@ namespace StoneArchNS
 		{
 			L = Logger;
 			HarmonyInstance = new Harmony("StoneArchPlugin");
-			
 			HarmonyInstance.PatchAll(typeof(StoneArchPlugin));
 			HarmonyInstance.Patch(
 				AccessTools.Method(typeof(EndOfMonthCutscenes).GetNestedType("<SpecialEvents>d__13", BindingFlags.NonPublic), "MoveNext"),
@@ -139,7 +138,7 @@ namespace StoneArchNS
 					CardData cardData = WorldManager.instance.CreateCard(randomSpawnPosition, "strange_portal", faceUp: true, checkAddToStack: false);
 					WorldManager.instance.EndOfMonthStatus = SokLoc.Translate("label_strange_portal_appeared");
 					GameCamera.instance.TargetPositionOverride = cardData.transform.position;
-					yield return new WaitForSeconds(Mathf.Max(0.01f, (4 - i) * 0.5f));
+					yield return new WaitForSeconds(Mathf.Max(0.1f, (4 - i) * 0.5f));
 					GameCamera.instance.TargetPositionOverride = null;
 				}
 				if (NumToSpawn > 0 ) yield return Cutscenes.WaitForContinueClicked(SokLoc.Translate("label_uh_oh"));
@@ -147,7 +146,19 @@ namespace StoneArchNS
 			
 		}
 		
-		
+		[HarmonyPatch(typeof(GameDataLoader), MethodType.Constructor)]
+		[HarmonyPostfix]
+		public static void InsertDrops(GameDataLoader __instance, ref Dictionary<SetCardBag, string> ___result)
+		{
+			var existing = SetCardBagHelper.BasicBuildingIdea;
+			
+			if (___result.TryGetValue(SetCardBag.BasicBuildingIdea, out var value))
+			{
+				existing = value;
+			}
+
+			___result[SetCardBag.AdvancedBuildingIdea] =  existing + ", blueprint_sa_stone_arch";
+		}
 		
 		static IEnumerable<CodeInstruction> TranspilerSpecialEvent(IEnumerable<CodeInstruction> instructions)
    		{

@@ -1,7 +1,7 @@
 {
 	"id": "sa_stone_arch",
 	"nameOverride": "Stone Arch",
-	"descriptionOverride": "An arch made of stone",
+	"descriptionOverride": "Catches Strange Portals so they don't spawn at random spots. But also causes them to spawn more often",
 	"value": 5,
 	"type": "Structures",
 	"icon": "arch.png",

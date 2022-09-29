@@ -1,6 +1,6 @@
 
 {
-	"id": "blueprint_stone_arch",
+	"id": "blueprint_sa_stone_arch",
 	"nameOverride": "Idea: Stone Arch",
 	"nameTerm": "blueprint_sa_stone_arch",
 	"group": "Important",
