@@ -1,8 +1,7 @@
 
 {
 	"id": "blueprint_sa_stone_arch",
-	"nameOverride": "Idea: Stone Arch",
-	"nameTerm": "blueprint_sa_stone_arch",
+	"nameTerm":"sa_stone_arch",
 	"group": "Important",
 	"icon": "arch.png",
 	"stackText": "Doin",
@@ -13,7 +12,7 @@
 			"resultCard": "sa_stone_arch",
 			"extraResultCards": "",
 			"time": 30,
-			"statusOverride": "Building a stone arch"
+			"statusTerm": "idea_sa_stone_arch_status"
 		}
 	]
 }
